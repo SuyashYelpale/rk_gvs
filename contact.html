@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Radha Krishna Gram Vikas Sanstha</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Contact Page Specific Enhancements */
+        .contact-grid-custom {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin-top: -60px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            color: var(--white);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--glow);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.1);
+        }
+
+        .info-pill {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .info-pill:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .info-pill i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 183, 3, 0.1);
+            border-radius: 12px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid-custom { grid-template-columns: 1fr; margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header id="main-header">
+        <nav class="container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="RKGVS Logo" class="logo">
+            </a>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" style="min-height: 45vh; padding-top: 150px;">
+            <div class="hero-content">
+                <span class="badge neon-border">Get In Touch</span>
+                <h1>Let's Build a <span class="text-gradient">Better Future</span></h1>
+                <p>Have questions? We’d love to hear from you. Reach out to our team in Pimpri, Maharashtra.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 100px;">
+            <div class="contact-grid-custom">
+                
+                <div class="contact-info">
+                    <div class="info-pill">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 style="color: var(--accent);">Our Location</h4>
+                            <p style="color: var(--text-muted);">Pimpri, Pune, Maharashtra 411018</p>
+                        </div>
+                    </div>
+
+                    <div class="info-pill">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4 style="color: var(--accent);">Call Us</h4>
+                            <p style="color: var(--text-muted);">+91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <div class="info-pill">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 style="color: var(--accent);">Email Us</h4>
+                            <p style="color: var(--text-muted);">info@rkgvs.org</p>
+                        </div>
+                    </div>
+
+                    <div class="info-pill">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 style="color: var(--accent);">Working Hours</h4>
+                            <p style="color: var(--text-muted);">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="padding: 3rem;">
+                    <h2 style="margin-bottom: 2rem;">Send a Message</h2>
+                    <form id="contactForm">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <input type="text" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">
+                            Send Message <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 100px;">
+            <div class="glass-card" style="padding: 10px; border-radius: 30px; overflow: hidden;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60501.03608240431!2d73.77154215!3d18.6120539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9794e66299d%3A0x673994326f5d886!2sPimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                    width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2 class="footer-logo">RKGVS<span>.</span></h2>
+                <p style="color: var(--text-muted);">Building a future where every village is a center of excellence.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="donate.html">Donate</a>
+            </div>
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <p>info@rkgvs.org</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="copyright-year"></span> Radha Krishna Gram Vikas Sanstha. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Radha Krishna Gram Vikas Sanstha</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Specific Styles for Team Images */
+        .team-img-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            border-radius: 50%;
+            padding: 5px; /* Space for the gradient border */
+            background: linear-gradient(45deg, var(--accent), var(--glow));
+        }
+
+        .team-img-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover; /* This keeps the face from stretching */
+            border: 3px solid var(--primary-dark);
+            display: block;
+        }
+
+        .story-content-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2.5rem;
+            margin-top: -50px;
+        }
+
+        @media (max-width: 768px) {
+            .story-content-grid { grid-template-columns: 1fr; margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header id="main-header">
+        <nav class="container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="RKGVS Logo" class="logo">
+            </a>
+        <ul id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="program.html">Program</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
+</ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" style="min-height: 50vh; padding-top: 160px;">
+            <div class="hero-content">
+                <span class="badge neon-border" id="vision-badge">Vision</span>
+                <h1>Transforming Lives for <span class="text-gradient">15+ Years</span></h1>
+                <p>राधा कृष्ण ग्राम विकास संस्था - Empowering the heart of rural Maharashtra since 2010.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 80px;">
+            <div class="story-content-grid">
+                <div class="glass-card">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Our Journey</h2>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Founded in 2010 in Pimpri, Maharashtra, Radha Krishna Gram Vikas Sanstha (RKGVS) has been dedicated to uplifting rural communities through sustainable development programs.</p>
+                    <p style="color: var(--text-muted);">Guided by spiritual values and practical solutions, we work hand-in-hand with villages to create lasting change in education, healthcare, and economic stability.</p>
+                </div>
+                
+                <div class="glass-card" style="border-color: var(--accent);">
+                    <h3 style="color: var(--accent); margin-bottom: 1.5rem;">Our Vision</h3>
+                    <ul style="list-style: none; color: var(--text-muted); line-height: 2.2;">
+                        <li><i class="fas fa-check-circle" style="color: var(--glow); margin-right: 10px;"></i> Empowered Communities</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--glow); margin-right: 10px;"></i> Education for All</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--glow); margin-right: 10px;"></i> Healthy Villages</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--glow); margin-right: 10px;"></i> Sustainable Agriculture</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 100px 0;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="color: var(--glow); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">The Leadership</p>
+                <h2 style="font-size: 3rem;">Meet Our Team</h2>
+            </div>
+
+            <div class="grid-3">
+                <div class="glass-card" style="text-align: center;">
+                    <div class="team-img-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=300&h=300" alt="Shri Ram Sharma">
+                    </div>
+                    <h3>Shri Ram Sharma</h3>
+                    <p style="color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Founder & President</p>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="team-img-container" style="background: linear-gradient(45deg, var(--glow), var(--white));">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=300&h=300" alt="Smt. Laxmi Devi">
+                    </div>
+                    <h3>Smt. Laxmi Devi</h3>
+                    <p style="color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Secretary</p>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="team-img-container" style="background: linear-gradient(45deg, var(--white), var(--accent));">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?fit=crop&w=300&h=300" alt="Rajesh Kumar">
+                    </div>
+                    <h3>Rajesh Kumar</h3>
+                    <p style="color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Program Director</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2 class="footer-logo">RKGVS<span>.</span></h2>
+                <p style="color: var(--text-muted);">Empowering rural Maharashtra through dedicated service and innovation.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navigation</h3>
+                <a href="index.html">Home</a>
+                <a href="activities.html">Activities</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@rkgvs.org</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="copyright-year"></span> Radha Krishna Gram Vikas Sanstha. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

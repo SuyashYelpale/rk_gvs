@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Radha Krishna Gram Vikas Sanstha</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Topic Cards Styling */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .topic-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            min-width: 150px;
+            backdrop-filter: blur(10px);
+        }
+
+        .topic-card i {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+
+        .topic-card span {
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .topic-card:hover, .topic-card.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .topic-card:hover span, .topic-card.active span,
+        .topic-card:hover i, .topic-card.active i {
+            color: var(--primary-dark);
+        }
+
+        /* Gallery Grid Logic */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s ease;
+        }
+
+        /* The "Hiding" Class */
+        .gallery-item.hide {
+            display: none;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(8, 28, 21, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover .overlay { opacity: 1; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .overlay span {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header id="main-header">
+        <nav class="container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="RKGVS Logo" class="logo">
+            </a>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main style="padding-top: 150px;">
+        <section class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="badge neon-border">Visual Impact</span>
+                <h1 style="font-size: 3.5rem;">Our <span class="text-gradient">Work</span> in Pictures</h1>
+            </div>
+
+            <div class="filter-container">
+                <div class="topic-card active" data-filter="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>All Photos</span>
+                </div>
+                <div class="topic-card" data-filter="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </div>
+                <div class="topic-card" data-filter="health">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Health</span>
+                </div>
+                <div class="topic-card" data-filter="farming">
+                    <i class="fas fa-seedling"></i>
+                    <span>Farming</span>
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="education">
+                    <img src="images/edu1.jpg" alt="School">
+                    <div class="overlay"><span>Computer Literacy Classes</span></div>
+                </div>
+                <div class="gallery-item" data-category="education">
+                    <img src="images/edu2.jpg" alt="Students">
+                    <div class="overlay"><span>Books Distribution Drive</span></div>
+                </div>
+
+                <div class="gallery-item" data-category="health">
+                    <img src="images/health1.jpg" alt="Health Camp">
+                    <div class="overlay"><span>Free Eye Checkup Camp</span></div>
+                </div>
+                <div class="gallery-item" data-category="health">
+                    <img src="images/health2.jpg" alt="Medical">
+                    <div class="overlay"><span>Maternal Health Workshop</span></div>
+                </div>
+
+                <div class="gallery-item" data-category="farming">
+                    <img src="images/farm1.jpg" alt="Agriculture">
+                    <div class="overlay"><span>Organic Fertilizer Training</span></div>
+                </div>
+                <div class="gallery-item" data-category="farming">
+                    <img src="images/farm2.jpg" alt="Farmers">
+                    <div class="overlay"><span>Drip Irrigation Installation</span></div>
+                </div>
+
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2 class="footer-logo">RKGVS<span>.</span></h2>
+                <p>Capturing the transformation of rural Maharashtra.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h3>Impact</h3>
+                <p>15+ Villages</p>
+                <p>5000+ Lives</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="copyright-year"></span> Radha Krishna Gram Vikas Sanstha.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Gallery Filter Logic
+        const filterCards = document.querySelectorAll('.topic-card');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Change active state of buttons
+                filterCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+
+                const filterValue = card.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide');
+                        // Add a small fade-in animation
+                        item.style.animation = "fadeIn 0.5s ease forwards";
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

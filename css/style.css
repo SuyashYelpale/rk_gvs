@@ -1,0 +1,356 @@
+/* RKGVS Unified Design System 2026 
+    Theme: Modern Heritage & Eco-Tech
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+
+:root {
+    /* Brand Colors */
+    --primary: #1b4332;       /* Deep Forest Green */
+    --primary-dark: #081c15;  /* Rich Black-Green */
+    --accent: #ffb703;        /* Sunlight Gold */
+    --glow: #4ade80;          /* Neon Growth Green */
+    
+    /* UI Neutrals */
+    --white: #ffffff;
+    --text-main: #ffffff;
+    --text-muted: #b7c4bf;
+    
+    /* Glassmorphism System */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-hover: rgba(255, 255, 255, 0.07);
+    
+    /* Animation & Shadows */
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.4s var(--ease);
+    --shadow-glow: 0 8px 32px rgba(74, 222, 128, 0.15);
+}
+
+/* --- Base Reset --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 2rem; 
+}
+
+/* --- 1. Background Layer (Animated Mesh) --- */
+.bg-glow {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(27, 67, 50, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(251, 133, 0, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(8, 28, 21, 1) 0%, transparent 100%);
+    animation: meshFlow 20s infinite alternate ease-in-out;
+}
+
+@keyframes meshFlow {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15) translate(1%, 1%); }
+}
+
+/* --- 2. Navigation (Fixed Glass) --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1.2rem 0;
+    background: rgba(8, 28, 21, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+header.scrolled {
+    padding: 0.8rem 0;
+    background: rgba(8, 28, 21, 0.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Updated Logo Sizing for Professionalism */
+.logo {
+    height: 50px; 
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 2.2rem; 
+    align-items: center; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    opacity: 0.75;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    opacity: 1;
+    color: var(--accent);
+}
+
+/* Navigation CTA Button */
+nav ul li a.nav-cta {
+    background: var(--accent);
+    color: var(--primary-dark) !important;
+    padding: 0.7rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 700;
+    opacity: 1;
+    box-shadow: 0 8px 20px rgba(255, 183, 3, 0.25);
+}
+
+nav ul li a.nav-cta:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+}
+
+/* --- 3. Hero Sections --- */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.badge {
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(74, 222, 128, 0.1);
+    color: var(--glow);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, var(--accent), var(--glow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.hero-btns { 
+    display: flex; 
+    gap: 1.2rem; 
+}
+
+/* --- 4. Modern Glass Components --- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    padding: 4rem 2.5rem;
+    border-radius: 40px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    background: var(--glass-hover);
+    transform: translateY(-12px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.icon-box {
+    width: 65px; height: 65px;
+    background: var(--accent);
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center; justify-content: center;
+    border-radius: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.glass-card h3 { 
+    font-size: 1.8rem; 
+    margin-bottom: 1rem; 
+}
+
+.glass-card p { 
+    color: var(--text-muted); 
+}
+
+/* --- 5. Buttons --- */
+.btn-primary {
+    background: var(--accent);
+    color: var(--primary-dark);
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 183, 3, 0.3);
+}
+
+.btn-outline {
+    border: 1px solid var(--glass-border);
+    color: var(--white);
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline:hover {
+    background: var(--glass-bg);
+    border-color: var(--white);
+}
+
+/* --- 6. Footer --- */
+footer {
+    background: rgba(0,0,0,0.4);
+    padding: 100px 0 30px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo span { color: var(--accent); }
+
+.footer-links h3 {
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.footer-links a, 
+.footer-links p {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- 7. Mobile Responsive Adjustments --- */
+.hamburger { 
+    display: none; 
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--white);
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    header { padding: 1rem 0; }
+    
+    .logo { height: 40px; } /* Smaller logo for mobile screens */
+
+    .hamburger { display: block; }
+
+    nav ul {
+        position: fixed;
+        top: 0; right: -100%;
+        height: 100vh; width: 85%;
+        background: var(--primary-dark);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.5s var(--ease);
+        box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+    }
+
+    nav ul.active { right: 0; }
+
+    .hero h1 { font-size: 2.5rem; }
+    
+    .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
