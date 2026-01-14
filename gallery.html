@@ -4,232 +4,302 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Radha Krishna Gram Vikas Sanstha</title>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Topic Cards Styling */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
-        }
-
-        .topic-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 1.5rem 2rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            min-width: 150px;
-            backdrop-filter: blur(10px);
-        }
-
-        .topic-card i {
-            display: block;
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-            color: var(--accent);
-        }
-
-        .topic-card span {
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .topic-card:hover, .topic-card.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .topic-card:hover span, .topic-card.active span,
-        .topic-card:hover i, .topic-card.active i {
-            color: var(--primary-dark);
-        }
-
-        /* Gallery Grid Logic */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 25px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            border: 1px solid var(--glass-border);
-            transition: all 0.5s ease;
-        }
-
-        /* The "Hiding" Class */
-        .gallery-item.hide {
-            display: none;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .gallery-item .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(8, 28, 21, 0.9), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .gallery-item:hover .overlay { opacity: 1; }
-        .gallery-item:hover img { transform: scale(1.1); }
-
-        .overlay span {
-            color: var(--white);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-    </style>
 </head>
 <body>
-    <div class="bg-glow"></div>
 
-    <header id="main-header">
-        <nav class="container">
-            <a href="index.html">
-                <img src="images/logo.png" alt="RKGVS Logo" class="logo">
-            </a>
-            <ul id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
+<div class="bg-glow"></div>
+
+<header id="main-header">
+    <nav class="container">
+        <a href="index.html">
+            <img src="images/logo.png" alt="RKGVS Logo" class="logo">
+        </a>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html" class="nav-cta">Donate Now</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+</header>
+
+    <main style="padding-top:150px; padding-bottom:40px;">
+    <section class="container">
+
+        <!-- ADMIN BAR -->
+        <div class="admin-bar">
+            <button id="adminBtn" class="admin-btn">Are you Admin?</button>
+            <button id="logoutBtn" class="admin-btn hidden" onclick="logoutAdmin()">Logout</button>
+            <button id="addImageBtn" class="add-btn hidden">➕ Add More Images</button>
+        </div>
+
+        <div style="text-align:center; margin-bottom:3rem;">
+            <span class="badge neon-border">Visual Impact</span>
+            <h1 style="font-size:3.5rem;">Our <span class="text-gradient">Work</span> in Pictures</h1>
+        </div>
+
+        <!-- FILTER -->
+        <div class="filter-container">
+            <div class="topic-card active" data-filter="all">
+                <i class="fas fa-th-large"></i>
+                <span>All Photos</span>
             </div>
-        </nav>
-    </header>
+            <div class="topic-card" data-filter="education">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+            </div>
+            <div class="topic-card" data-filter="health">
+                <i class="fas fa-hand-holding-medical"></i>
+                <span>Health</span>
+            </div>
+            <div class="topic-card" data-filter="farming">
+                <i class="fas fa-seedling"></i>
+                <span>Farming</span>
+            </div>
+        </div>
 
-    <main style="padding-top: 150px;">
-        <section class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span class="badge neon-border">Visual Impact</span>
-                <h1 style="font-size: 3.5rem;">Our <span class="text-gradient">Work</span> in Pictures</h1>
+        <!-- GALLERY -->
+        <div class="gallery-grid" id="galleryGrid">
+
+            <div class="gallery-item" data-category="education">
+                <img src="images/edu1.jfif" alt="School">
+                <div class="overlay"><span>Computer Literacy Classes</span></div>
             </div>
 
-            <div class="filter-container">
-                <div class="topic-card active" data-filter="all">
-                    <i class="fas fa-th-large"></i>
-                    <span>All Photos</span>
-                </div>
-                <div class="topic-card" data-filter="education">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Education</span>
-                </div>
-                <div class="topic-card" data-filter="health">
-                    <i class="fas fa-hand-holding-medical"></i>
-                    <span>Health</span>
-                </div>
-                <div class="topic-card" data-filter="farming">
-                    <i class="fas fa-seedling"></i>
-                    <span>Farming</span>
-                </div>
+            <div class="gallery-item" data-category="education">
+                <img src="images/edu2.jfif" alt="Students">
+                <div class="overlay"><span>Books Distribution Drive</span></div>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="education">
-                    <img src="images/edu1.jpg" alt="School">
-                    <div class="overlay"><span>Computer Literacy Classes</span></div>
-                </div>
-                <div class="gallery-item" data-category="education">
-                    <img src="images/edu2.jpg" alt="Students">
-                    <div class="overlay"><span>Books Distribution Drive</span></div>
-                </div>
+            <div class="gallery-item" data-category="health">
+                <img src="images/health1.jfif" alt="Health Camp">
+                <div class="overlay"><span>Free Eye Checkup Camp</span></div>
+            </div>
 
-                <div class="gallery-item" data-category="health">
-                    <img src="images/health1.jpg" alt="Health Camp">
-                    <div class="overlay"><span>Free Eye Checkup Camp</span></div>
-                </div>
-                <div class="gallery-item" data-category="health">
-                    <img src="images/health2.jpg" alt="Medical">
-                    <div class="overlay"><span>Maternal Health Workshop</span></div>
-                </div>
+            <div class="gallery-item" data-category="health">
+                <img src="images/health2.jfif" alt="Medical">
+                <div class="overlay"><span>Maternal Health Workshop</span></div>
+            </div>
 
-                <div class="gallery-item" data-category="farming">
-                    <img src="images/farm1.jpg" alt="Agriculture">
-                    <div class="overlay"><span>Organic Fertilizer Training</span></div>
-                </div>
-                <div class="gallery-item" data-category="farming">
-                    <img src="images/farm2.jpg" alt="Farmers">
-                    <div class="overlay"><span>Drip Irrigation Installation</span></div>
-                </div>
+            <div class="gallery-item" data-category="farming">
+                <img src="images/farm1.jfif" alt="Agriculture">
+                <div class="overlay"><span>Organic Fertilizer Training</span></div>
+            </div>
 
-                </div>
-        </section>
+            <div class="gallery-item" data-category="farming">
+                <img src="images/farm2.jfif" alt="Farmers">
+                <div class="overlay"><span>Drip Irrigation Installation</span></div>
+            </div>
+
+        </div>
+    </section>
     </main>
 
-    <footer>
+    <!-- ADMIN LOGIN MODAL -->
+    <div class="modal hidden" id="adminModal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeModal('adminModal')">&times;</span>
+            <h3>Admin Login</h3>
+            <input type="text" id="adminUser" placeholder="Username" autocomplete="new-username">
+            <input type="password" id="adminPass" placeholder="Password" autocomplete="new-password">
+            <button onclick="loginAdmin()">Login</button>
+        </div>
+    </div>
+
+
+    <!-- ADD IMAGE MODAL -->
+    <div class="modal hidden" id="uploadModal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeModal('uploadModal')">&times;</span>
+            <h3>Upload Image</h3>
+
+            <input type="file" id="imageFile" accept="image/*">
+            
+            <select id="imageCategory">
+                <option value="education">Education</option>
+                <option value="health">Health</option>
+                <option value="farming">Farming</option>
+            </select>
+
+            <input type="text" id="imageCaption" placeholder="Image Caption">
+
+            <button onclick="addImage()">Upload</button>
+        </div>
+    </div>
+
+
+<footer>
         <div class="container footer-grid">
-            <div>
+            <div class="footer-about">
                 <h2 class="footer-logo">RKGVS<span>.</span></h2>
-                <p>Capturing the transformation of rural Maharashtra.</p>
+                <p>Building a future where every village is a center of excellence. Join us in our journey toward a developed rural India.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
+            
             <div class="footer-links">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
+                <h3>Navigation</h3>
+                <a href="about.html">Our History</a>
+                <a href="activities.html">What We Do</a>
+                <a href="gallery.html">Photo Gallery</a>
+                <a href="contact.html">Work With Us</a>
             </div>
+
             <div class="footer-links">
-                <h3>Impact</h3>
-                <p>15+ Villages</p>
-                <p>5000+ Lives</p>
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Pimpri, Pune, Maharashtra</p>
+                <p><i class="fas fa-envelope"></i> info@rkgvs.org</p>
+                <p><i class="fas fa-phone"></i> +91 98XXX XXXXX</p>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            &copy; <span id="copyright-year"></span> Radha Krishna Gram Vikas Sanstha.
+            <p>&copy; 2026 Radha Krishna Gram Vikas Sanstha. All rights reserved by <a href="https://ilitecode.com/"><b>Litecode</b></a>.</p>
         </div>
     </footer>
+<script src="js/script.js"></script>
 
-    <script src="js/script.js"></script>
-    <script>
-        // Gallery Filter Logic
+        <script>
+        /* =====================
+        GALLERY FILTER
+        ===================== */
         const filterCards = document.querySelectorAll('.topic-card');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
         filterCards.forEach(card => {
             card.addEventListener('click', () => {
-                // Change active state of buttons
                 filterCards.forEach(c => c.classList.remove('active'));
                 card.classList.add('active');
 
-                const filterValue = card.getAttribute('data-filter');
-
+                const filter = card.dataset.filter;
                 galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.classList.remove('hide');
-                        // Add a small fade-in animation
-                        item.style.animation = "fadeIn 0.5s ease forwards";
-                    } else {
-                        item.classList.add('hide');
-                    }
+                    item.style.display =
+                        filter === 'all' || item.dataset.category === filter
+                        ? 'block'
+                        : 'none';
                 });
             });
         });
+
+
+    let isAdmin = false;
+
+    /* Modal Controls */
+    function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+    }
+
+    /* Admin Login */
+    document.getElementById('adminBtn').onclick = () => openModal('adminModal');
+    document.getElementById('addImageBtn').onclick = () => openModal('uploadModal');
+
+    function loginAdmin() {
+    const user = document.getElementById('adminUser').value;
+    const pass = document.getElementById('adminPass').value;
+
+        if (user === "admin" && pass === "1234") {
+            isAdmin = true;
+
+            closeModal('adminModal');
+
+            // Toggle buttons
+            document.getElementById('adminBtn').classList.add('hidden');
+            document.getElementById('logoutBtn').classList.remove('hidden');
+            document.getElementById('addImageBtn').classList.remove('hidden');
+
+            enableDeleteButtons();
+            alert("Admin Logged In");
+        } else {
+            alert("Invalid Credentials");
+        }
+    }
+
+
+    // logout function
+    function logoutAdmin() {
+    isAdmin = false;
+
+    document.getElementById('adminBtn').classList.remove('hidden');
+    document.getElementById('logoutBtn').classList.add('hidden');
+    document.getElementById('addImageBtn').classList.add('hidden');
+
+    // Remove delete buttons
+    document.querySelectorAll('.delete-btn').forEach(btn => btn.remove());
+
+    alert("Logged Out Successfully");
+}
+
+
+    /* Add Image */
+    function addImage() {
+        const fileInput = document.getElementById('imageFile');
+        const caption = document.getElementById('imageCaption').value;
+        const category = document.getElementById('imageCategory').value;
+
+        if (!fileInput.files[0]) {
+            alert("Please select an image");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.setAttribute('data-category', category);
+
+            div.innerHTML = `
+                <button class="delete-btn" onclick="deleteImage(this)">✕</button>
+                <img src="${e.target.result}">
+                <div class="overlay"><span>${caption}</span></div>
+            `;
+
+            document.querySelector('.gallery-grid').appendChild(div);
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+
+        closeModal('uploadModal');
+        fileInput.value = '';
+        document.getElementById('imageCaption').value = '';
+    }
+
+    /* Delete Image */
+    function deleteImage(btn) {
+        if (confirm("Are you sure you want to delete this image?")) {
+            btn.parentElement.remove();
+        }
+    }
+
+    /* Enable delete on existing images */
+    function enableDeleteButtons() {
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            if (!item.querySelector('.delete-btn')) {
+                const btn = document.createElement('button');
+                btn.className = 'delete-btn';
+                btn.innerHTML = '✕';
+                btn.onclick = () => deleteImage(btn);
+                item.appendChild(btn);
+            }
+        });
+    }
+
     </script>
+
 </body>
 </html>

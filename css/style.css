@@ -92,18 +92,32 @@ nav {
     align-items: center; 
 }
 
-/* Updated Logo Sizing for Professionalism */
+/* ================= LOGO FIX (CLEAR + PROFESSIONAL) ================= */
+
 .logo {
-    height: 50px; 
+    height: 70px;              /* Bigger & readable */
+    max-height: 80px;
     width: auto;
+    padding: 1px 70x;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+
     object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    transition: var(--transition);
+    display: block;
+
+    /* Stronger clarity on dark header */
+    filter: 
+        drop-shadow(0 4px 8px rgba(0,0,0,0.45));
+
+    transition: transform 0.3s ease;
 }
 
+/* Slight premium hover effect */
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.5);
 }
+
+
 
 nav ul { 
     display: flex; 
@@ -198,15 +212,27 @@ nav ul li a.nav-cta:hover {
     gap: 2.5rem;
 }
 
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;         
+    margin-top: 3rem;    
+}
+
+
 .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(12px);
-    padding: 4rem 2.5rem;
+
+    padding: 3.5rem 2.5rem;  /* slightly tighter */
     border-radius: 40px;
+
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+
+    margin: 0; /* ensure no collapse */
 }
 
 .glass-card:hover {
@@ -234,6 +260,146 @@ nav ul li a.nav-cta:hover {
 
 .glass-card p { 
     color: var(--text-muted); 
+}
+
+/* ===== Stats Section ===== */
+.stats {
+    padding: 80px 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* horizontal */
+    gap: 2.5rem;
+    text-align: center;
+}
+
+/* Individual Stat Card */
+.stat-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+
+    padding: 3rem 2rem;
+    border-radius: 28px;
+
+    transition: var(--transition);
+}
+
+/* Hover Effect */
+.stat-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Counter Number */
+.stat-item h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+
+    background: linear-gradient(to right, var(--accent), var(--glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Label Text */
+.stat-item p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .stat-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== 8. Testimonial Section ===== */
+.testimonial {
+    margin-top: 8rem; /* adds margin from top */
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    border-radius: 40px;
+    padding: 3rem 2.5rem;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--shadow-glow);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    background: var(--glass-hover);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.user-info {
+    margin-top: 1rem;
+}
+
+.user-info strong {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+}
+
+.user-info span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .testimonial {
+        margin-top: 6rem;
+        padding: 3rem 1rem;
+    }
+
+    .testimonial-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .quote-icon {
+        font-size: 2rem;
+    }
 }
 
 /* --- 5. Buttons --- */
