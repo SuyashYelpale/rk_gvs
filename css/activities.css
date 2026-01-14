@@ -1,6 +1,10 @@
 .page-hero { /* Same as about.css */ }
-.activities-grid { padding: 6rem 0; }
-.activity-category { margin-bottom: 5rem; }
+.activities-grid {
+    padding: 6rem 0;
+}
+.activity-category {
+    margin-bottom: 5rem;
+}
 .activity-category h2 { 
     font-size: 2.5rem; 
     color: #228B22; 
@@ -12,14 +16,60 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 2rem; 
 }
-.activity-card { 
-    background: white; 
-    padding: 2.5rem; 
-    border-radius: 20px; 
-    text-align: center; 
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+
+.activity-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     transition: all 0.4s ease;
+    overflow: hidden;
+    min-height: 300px;
+    color: white;
+
+    /* No filter, image stays normal */
 }
-.activity-card:hover { transform: translateY(-10px) scale(1.02); }
-.activity-icon { font-size: 4rem; margin-bottom: 1rem; }
-.activity-card h3 { color: #228B22; margin-bottom: 1rem; font-size: 1.6rem; }
+
+.activity-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Gradient overlay for stylish and readable text */
+.activity-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0,0,0,0.3) 0%, 
+        rgba(0,0,0,0.6) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Text and icon styles */
+.activity-icon { 
+    font-size: 4rem; 
+    margin-bottom: 1rem; 
+}
+.activity-card h3 { 
+    color: #fff; 
+    margin-bottom: 1rem; 
+    font-size: 1.6rem; 
+}
+.activity-card p { 
+    color: #f0f0f0; 
+    font-size: 1rem; 
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+    .activity-card { min-height: 250px; }
+    .activity-card h3 { font-size: 1.4rem; }
+    .activity-card p { font-size: 0.95rem; }
+}

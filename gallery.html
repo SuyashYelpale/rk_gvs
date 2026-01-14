@@ -72,32 +72,32 @@
         <div class="gallery-grid" id="galleryGrid">
 
             <div class="gallery-item" data-category="education">
-                <img src="images/edu1.jfif" alt="School">
+                <img src="images/edu1.jpg" alt="School">
                 <div class="overlay"><span>Computer Literacy Classes</span></div>
             </div>
 
             <div class="gallery-item" data-category="education">
-                <img src="images/edu2.jfif" alt="Students">
+                <img src="images/edu2.jpg" alt="Students">
                 <div class="overlay"><span>Books Distribution Drive</span></div>
             </div>
 
             <div class="gallery-item" data-category="health">
-                <img src="images/health1.jfif" alt="Health Camp">
+                <img src="images/health1.jpg" alt="Health Camp">
                 <div class="overlay"><span>Free Eye Checkup Camp</span></div>
             </div>
 
             <div class="gallery-item" data-category="health">
-                <img src="images/health2.jfif" alt="Medical">
+                <img src="images/health2.jpg" alt="Medical">
                 <div class="overlay"><span>Maternal Health Workshop</span></div>
             </div>
 
             <div class="gallery-item" data-category="farming">
-                <img src="images/farm1.jfif" alt="Agriculture">
+                <img src="images/farm1.jpg" alt="Agriculture">
                 <div class="overlay"><span>Organic Fertilizer Training</span></div>
             </div>
 
             <div class="gallery-item" data-category="farming">
-                <img src="images/farm2.jfif" alt="Farmers">
+                <img src="images/farm2.jpg" alt="Farmers">
                 <div class="overlay"><span>Drip Irrigation Installation</span></div>
             </div>
 
@@ -154,7 +154,7 @@
             <div class="footer-links">
                 <h3>Navigation</h3>
                 <a href="about.html">Our History</a>
-                <a href="activities.html">What We Do</a>
+                <a href="program.html">What We Do</a>
                 <a href="gallery.html">Photo Gallery</a>
                 <a href="contact.html">Work With Us</a>
             </div>
@@ -168,138 +168,12 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Radha Krishna Gram Vikas Sanstha. All rights reserved by <a href="https://ilitecode.com/"><b>Litecode</b></a>.</p>
+            <p>&copy; 2026 Radha Krishna Gram Vikas Sanstha. All rights reserved by <a href="https://ilitecode.com/"><b>LiteCode Software Pvt. Ltd</b></a>.</p>
         </div>
     </footer>
-<script src="js/script.js"></script>
+<script src="js/gallery.js"></script>
 
-        <script>
-        /* =====================
-        GALLERY FILTER
-        ===================== */
-        const filterCards = document.querySelectorAll('.topic-card');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterCards.forEach(card => {
-            card.addEventListener('click', () => {
-                filterCards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-
-                const filter = card.dataset.filter;
-                galleryItems.forEach(item => {
-                    item.style.display =
-                        filter === 'all' || item.dataset.category === filter
-                        ? 'block'
-                        : 'none';
-                });
-            });
-        });
-
-
-    let isAdmin = false;
-
-    /* Modal Controls */
-    function openModal(id) {
-        document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id) {
-        document.getElementById(id).classList.add('hidden');
-    }
-
-    /* Admin Login */
-    document.getElementById('adminBtn').onclick = () => openModal('adminModal');
-    document.getElementById('addImageBtn').onclick = () => openModal('uploadModal');
-
-    function loginAdmin() {
-    const user = document.getElementById('adminUser').value;
-    const pass = document.getElementById('adminPass').value;
-
-        if (user === "admin" && pass === "1234") {
-            isAdmin = true;
-
-            closeModal('adminModal');
-
-            // Toggle buttons
-            document.getElementById('adminBtn').classList.add('hidden');
-            document.getElementById('logoutBtn').classList.remove('hidden');
-            document.getElementById('addImageBtn').classList.remove('hidden');
-
-            enableDeleteButtons();
-            alert("Admin Logged In");
-        } else {
-            alert("Invalid Credentials");
-        }
-    }
-
-
-    // logout function
-    function logoutAdmin() {
-    isAdmin = false;
-
-    document.getElementById('adminBtn').classList.remove('hidden');
-    document.getElementById('logoutBtn').classList.add('hidden');
-    document.getElementById('addImageBtn').classList.add('hidden');
-
-    // Remove delete buttons
-    document.querySelectorAll('.delete-btn').forEach(btn => btn.remove());
-
-    alert("Logged Out Successfully");
-}
-
-
-    /* Add Image */
-    function addImage() {
-        const fileInput = document.getElementById('imageFile');
-        const caption = document.getElementById('imageCaption').value;
-        const category = document.getElementById('imageCategory').value;
-
-        if (!fileInput.files[0]) {
-            alert("Please select an image");
-            return;
-        }
-
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-            div.setAttribute('data-category', category);
-
-            div.innerHTML = `
-                <button class="delete-btn" onclick="deleteImage(this)">✕</button>
-                <img src="${e.target.result}">
-                <div class="overlay"><span>${caption}</span></div>
-            `;
-
-            document.querySelector('.gallery-grid').appendChild(div);
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-
-        closeModal('uploadModal');
-        fileInput.value = '';
-        document.getElementById('imageCaption').value = '';
-    }
-
-    /* Delete Image */
-    function deleteImage(btn) {
-        if (confirm("Are you sure you want to delete this image?")) {
-            btn.parentElement.remove();
-        }
-    }
-
-    /* Enable delete on existing images */
-    function enableDeleteButtons() {
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            if (!item.querySelector('.delete-btn')) {
-                const btn = document.createElement('button');
-                btn.className = 'delete-btn';
-                btn.innerHTML = '✕';
-                btn.onclick = () => deleteImage(btn);
-                item.appendChild(btn);
-            }
-        });
-    }
-
-    </script>
+    
 
 </body>
 </html>
