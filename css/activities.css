@@ -1,7 +1,9 @@
 .page-hero { /* Same as about.css */ }
 .activities-grid {
-    padding: 6rem 0;
+    padding-top: 3rem;
+    margin-top: 110px;
 }
+
 .activity-category {
     margin-bottom: 5rem;
 }

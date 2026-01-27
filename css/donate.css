@@ -45,6 +45,12 @@
     border-top: 4px solid var(--clay);
     box-shadow: 0 20px 40px -10px rgba(13, 47, 47, 0.1);
     color: #0f3d3e;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -15px rgba(13, 47, 47, 0.18);
 }
 
 .impact-card h3 {
@@ -52,66 +58,7 @@
     font-weight: 800;
 }
 
-/* --- Bank Card --- */
-
-.bank-details-card {
-    position: relative;
-    margin-top: 3.5rem;
-    padding: 3.5rem 3rem;
-    border-radius: 36px;
-    background: linear-gradient(
-        135deg,
-        #0f3d3e 0%,
-        #134e4a 50%,
-        #0b2f2f 100%
-    );
-    color: #ffffff;
-    box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    overflow: hidden;
-}
-
-.bank-details-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        circle at top right,
-        rgba(74, 222, 128, 0.18),
-        transparent 55%
-    );
-    pointer-events: none;
-}
-
-.bank-details-card h3 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: #ffb703;
-}
-
-.bank-info {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    padding: 2rem;
-    margin-bottom: 1.8rem;
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.info-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.9rem 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-    font-size: 0.95rem;
-}
+/* --- Legacy Bank Styles (UNCHANGED) --- */
 
 .info-row:last-child {
     border-bottom: none;
@@ -123,83 +70,186 @@
 }
 
 .info-row strong {
-    color: #ffffff;
-    font-weight: 700;
+    color: #0f3d3e;
+    font-weight: 600;
     letter-spacing: 0.3px;
 }
 
-.tax-note {
-    font-size: 0.9rem;
-    color: #4ade80;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 1.2rem;
-}
-
-/* ================= QR PAYMENT SECTION ================= */
-
-.qr-payment-card {
-    background: #ffffff;
-    padding: 3rem;
-    border-radius: 32px;
-    box-shadow: 0 40px 80px -20px rgba(13, 47, 47, 0.18);
-    text-align: center;
-    margin-bottom: 3.5rem;
-}
-
-.qr-payment-card h2 {
-    color: var(--deep-teal);
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-}
-
-.qr-payment-card p {
-    color: #475569;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.qr-box {
-    background: #f8fafc;
-    border-radius: 24px;
-    padding: 2rem;
-    display: inline-block;
-    border: 2px dashed var(--accent);
-}
-
-.qr-box img {
-    max-width: 220px;
-    width: 100%;
-}
-
-.upi-details {
-    margin-top: 1.5rem;
-    font-weight: 600;
-    color: #0f3d3e;
-}
-
-.qr-note {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    color: #16a34a;
-    font-weight: 600;
-}
 
 
-/* Mobile Optimization */
+/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
-    .bank-details-card {
-        padding: 2.5rem 2rem;
+    .donate-grid {
+        grid-template-columns: 1fr;
     }
 
     .info-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.3rem;
+      }
     }
 
-    .donate-grid {
+/* ======================================================
+   PASSBOOK THEME ADD-ON (FINAL FIX – LABEL LEFT, VALUE RIGHT)
+====================================================== */
+
+.bank-passbook-card {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(13, 47, 47, 0.12);
+    margin-top: 3.5rem;
+    border: 1px solid rgba(13, 47, 47, 0.1);
+}
+
+.bank-passbook-card h2 {
+    text-align: center;
+    color:  #0f3d3e;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+}
+/* ========= COPY BUTTON FINAL STYLE ========= */
+
+.passbook-details .info-row {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr auto;
+    align-items: center;
+    gap: 0.5 rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(13, 47, 47, 0.12);
+
+    
+}
+
+
+.passbook-details .copy-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0f3d3e;
+    font-size: 1rem;
+    padding: 0.35rem;
+    border-radius: 6px;
+    justify-self: end;
+}
+
+.passbook-details .copy-btn:hover {
+    background: rgba(15, 61, 62, 0.12);
+}
+
+
+
+/* Mobile fix */
+@media (max-width: 768px) {
+    .passbook-details .info-row {
         grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+       .passbook-details .copy-btn {
+        justify-self: flex-end;
+    }
+    }
+
+.passbook-note {
+    text-align: center;
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Inner box */
+.passbook-details {
+    background: #f9fafb;
+    border-radius: 14px;
+    padding: 1.8rem 2rem;
+    border: 1px solid rgba(13, 47, 47, 0.1);
+}
+
+/* ROW = label LEFT | value RIGHT */
+.passbook-details .info-row {
+    display: grid !important;
+    grid-template-columns: 180px 1fr 40px;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(13, 47, 47, 0.12);
+}
+.passbook-details .info-row span {
+    font-weight: 600;
+    color: #334155;
+}
+.passbook-details .info-row strong {
+    color: #0f3d3e;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.passbook-details .info-row:last-child {
+    border-bottom: none;
+}
+
+/* LABEL */
+.passbook-details .info-row span {
+    color: #334155;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Hover – subtle */
+.passbook-details .info-row:hover {
+    background: rgba(13, 47, 47, 0.04);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 8px;
+}
+
+
+/* ========= TOAST MESSAGE ========= */
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0f3d3e;;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    .bank-passbook-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .passbook-details {
+        padding: 1.5rem;
+    }
+
+    .passbook-details .info-row {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+
+    .passbook-details .info-row span {
+        font-size: 0.9rem;
+        color: #64748b;
     }
 }
+

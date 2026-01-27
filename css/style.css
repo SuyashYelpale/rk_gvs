@@ -85,22 +85,35 @@ nav {
     min-height: 80px;
 }
 
-/* ================= Logo ================= */
 .logo {
-    height: 68px;
+    height: 125px;                 /* 👈 bigger but still navbar safe */
     width: auto;
-    padding: 4px 10px;
-    border-radius: 10px;
+    padding: 6px 12px;             /* spacing so it breathes */
+
     object-fit: contain;
     display: block;
-    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.35));
-    transition: transform 0.25s ease, filter 0.25s ease;
+   
+    image-rendering: -webkit-optimize-contrast;
+
+
+    /* 🔥 clarity & visibility */
+    filter:
+        brightness(1.55)
+        contrast(1.35)
+        saturate(1.1)
+        drop-shadow(0 3px 6px rgba(0,0,0,0.45))
+        drop-shadow(0 8px 16px rgba(0,0,0,0.35));
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
 }
 
+
 .logo:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    transform: scale(1.05);
 }
+
 
 /* ================= Navigation Links ================= */
 nav ul {
@@ -385,10 +398,52 @@ footer {
     transition: all 0.3s ease;
 }
 
+/* Facebook */
+.social-links a:hover .fa-facebook {
+    color: #1877f2;
+}
+/* Facebook */
+.social-links a:has(.fa-facebook):hover {
+    background: #1877f2;
+}
+
+.social-links a:has(.fa-facebook):hover i {
+    color: #ffffff;   /* ICON WHITE */
+}
+
+
+/* Instagram */
+.social-links a:hover .fa-instagram {
+    color: #ffffff;
+}
+.social-links a:has(.fa-instagram):hover {
+    background: linear-gradient(
+        45deg,
+        #f58529,
+        #dd2a7b,
+        #8134af,
+        #515bd4
+    );
+}
+
+/* Twitter */
+.social-links a:hover .fa-twitter {
+    color: #ffffff;
+}
+.social-links a:has(.fa-twitter):hover {
+    background: #1da1f2;
+}
+
+/* YouTube */
+.social-links a:hover .fa-youtube {
+    color: #ffffff;
+}
+.social-links a:has(.fa-youtube):hover {
+    background: #ff0000;
+}
 .social-links a:hover {
-    background: var(--glow);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(34,197,94,0.4);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.25);
 }
 
 /* ================= Mobile ================= */
@@ -409,7 +464,7 @@ footer {
 
 
 @media (max-width: 768px) {
-    .logo { height: 42px; }
+    .logo { height: 60px; }
   
 
     nav ul {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate - Radha Krishna Gram Vikas Sanstha</title>
+    <title>Donate - Radha Krishna Gramvikas Krushi v Sanshodhan Sanstha</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/donate.css">
@@ -24,7 +24,7 @@
             <li><a href="program.html">Program</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donate.html" class="nav-cta active">Donate</a></li>
+            <li><a href="donate.html" class="nav-cta active">Donate Now</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
@@ -70,67 +70,69 @@
                     </div>
                 </div>
 
-                <!-- QR PAYMENT -->
-                <div class="qr-payment-card">
-                    <h2>
-                        <i class="fas fa-qrcode"></i> Scan & Donate
-                    </h2>
-
-                    <p>
-                        Scan the QR code using any UPI app<br>
-                        (Google Pay, PhonePe, Paytm, BHIM)
-                    </p>
-
-                    <div class="qr-box">
-                        <img src="images/rkgvs-upi-qr.png" alt="UPI QR Code">
-                    </div>
-
-                    <div class="upi-details">
-                        <p><strong>UPI ID:</strong> rkgvs@paytm</p>
-                        <p><strong>Name:</strong> Radha Krishna Gram Vikas Sanstha</p>
-                    </div>
-
-                    <p class="qr-note">
-                        After payment, email transaction ID to
-                        <strong>info@rkgvs.org</strong> for receipt
-                    </p>
-                </div>
+              
 
                 <!-- BANK DETAILS -->
-                <div class="bank-details-card">
-                    <h3><i class="fas fa-university"></i> Bank Transfer Details</h3>
+                <div class="bank-passbook-card">
+    <h2>
+        <i class="fas fa-book"></i> Bank Passbook Details
+    </h2>
 
-                    <div class="bank-info">
-                        <div class="info-row">
-                            <span>Account Name:</span>
-                            <strong>Radha Krishna Gram Vikas Sanstha</strong>
-                        </div>
-                        <div class="info-row">
-                            <span>Bank:</span>
-                            <strong>State Bank of India</strong>
-                        </div>
-                        <div class="info-row">
-                            <span>A/c No:</span>
-                            <strong>123456789012</strong>
-                        </div>
-                        <div class="info-row">
-                            <span>IFSC:</span>
-                            <strong>SBIN0001234</strong>
-                        </div>
-                        <div class="info-row">
-                            <span>UPI ID:</span>
-                            <strong>rkgvs@paytm</strong>
-                        </div>
-                    </div>
+    <p class="passbook-note">
+        You can donate directly via NEFT / RTGS / IMPS using the details below
+    </p>
 
-                    <p class="tax-note">
-                        * All donations are tax-exempt under Section 80G.
-                    </p>
-                </div>
+    <div class="passbook-details">
+        <div class="info-row">
+            <span>Account Name:</span>
+            <strong>RADHAKRUSHNA GRAMVIKAS KRUSHI VA SA</strong>
+            <span> </span>
+        </div>
+
+        <div class="info-row">
+            <span>Account Number:</span>
+            <strong id="accNo">065620110000073</strong>
+             <button class="copy-btn" onclick="copyText('accNo')">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="info-row">
+            <span>Bank Name:</span>
+            <strong>Bank of India</strong>
+            <span> </span>
+        </div>
+
+        <div class="info-row">
+            <span>Branch:</span>
+            <strong>At post Ajanale, Tal - Sangola Branch, Maharashtra, 413307</strong>
+            <span> </span>
+        </div>
+
+        <div class="info-row">
+            <span>IFSC Code:</span>
+            <strong id="ifscCode">BKID0000656</strong>
+             <button class="copy-btn" onclick="copyText('ifscCode')">
+            <i class="fas fa-copy"></i>
+           </button>
+        </div>
+
+        <div class="info-row">
+            <span>Account Type:</span>
+            <strong>Current</strong>
+            <span> </span>
+        </div>
+    </div>
+
+    
+</div>
+
 
             </div>
         </div>
     </div>
+    <div id="toast">Copied</div>
+
 </section>
 
 </main>
@@ -138,7 +140,7 @@
 <footer>
         <div class="container footer-grid">
             <div class="footer-about">
-                <h2 class="footer-logo">RKGVS<span>.</span></h2>
+                <h2 class="footer-logo">RadhaKrushna Gramvikas Krushi v Sanshodhan Sanstha</h2>
                 <p>Building a future where every village is a center of excellence. Join us in our journey toward a developed rural India.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
@@ -159,17 +161,30 @@
             <div class="footer-links">
                 <h3>Contact Details</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Ajanale, Sangola, Solapur, Maharashtra</p>
-                <p><i class="fas fa-envelope"></i> info@rkgvs.org</p>
-                <p><i class="fas fa-phone"></i> +91 98XXX XXXXX</p>
+                <p><i class="fas fa-phone"></i> +91 9970354142 <br> +91 8308305655</p>
             </div>
         </div>
         
        <div class="footer-bottom">
-            <p>&copy; 2026 Radha Krishna Gram Vikas Sanstha. All rights reserved by <a href="https://ilitecode.com/"><b>LiteCode Software Pvt. Ltd</b></a>.</p>
+            <p>&copy; 2026 RadhaKrushna Gramvikas Krushi v Sanshodhan Sanstha. All rights reserved by <a href="https://ilitecode.com/"><b>LiteCode Software Pvt. Ltd</b></a>.</p>
         </div>
     </footer>
+<script>
+function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
 
-<script src="js/script.js"></script>
+    const toast = document.getElementById("toast");
+    toast.innerText = "Copied: " + text;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
+</script>
+
+
 
 </body>
 </html>
